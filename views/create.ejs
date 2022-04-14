@@ -1,0 +1,35 @@
+<% if( errors.length > 0)  { %>
+<div>
+    <% errors.forEach(error=>{ %>
+    <div style="color: red; font-size: x-large; float: right; margin-right: 10px;">
+        <%- error.msg %>
+    </div>
+    <%})%>
+</div>
+<br>
+<% }%>
+<br>
+<div id="createForm" class="dir">
+    <form action="/create" method="POST">
+        <h3>عنوان دسته</h3>
+        <input type="text" name="title" id="title" class="createInputs">
+        <br />
+
+        <h3 id="type">نوع دسته</h3>
+        <select name="father" id="father" onkeyup="underCate()" onclick="underCate()">
+            <option value="true">دسته اصلی</option>
+            <option value="false">زیر دسته</option>
+        </select>
+        <br>(categorise => { %>
+            <option value="<%- categorise.id %>"><%- categorise.title %></option>
+            <% }) %>
+        </select><br><br>
+
+        <input type="submit" id="submit" value="ایجاد دسته" class="btn btn-success margin">
+    </form>
+        <h3 style="display: none;" id="fatherCategoriHead">دسته پدر</h3><br>
+        <select name="fatherCategori" id="fatherCategori" style="display: none;">
+            <% categorise.forEach 
+</div>
+
+<script src="js/create.js"></script>

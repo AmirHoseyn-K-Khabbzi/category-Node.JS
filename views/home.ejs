@@ -1,0 +1,35 @@
+<div class="dir">
+    <div id="icreateButtom">
+        <a href="/create" class="btn btn-success margin"> ایجاد دسته بندی جدید</a>
+    </div>
+</div>
+
+<% if (status == 0) { %> 
+
+    <% category.docs.forEach(cate =>{ %>
+    <div class="categoryDiv">
+        <div id="categoryTitle"><h2><%- cate.title %></h2></div>
+        <a href="/goin/<%- cate.id %>"><div id="goIn"><h3>زیر دسته ها ></h3></div></a>
+        <div id="options">
+            <a href="/remove/<%= cate.id %>" class="btn btn-danger margin"> حذف</a>
+        </div>
+    </div>
+    <% }) %>
+<% } else { %>
+    <% category.forEach(cate =>{ %>
+        <div class="categoryDiv">
+            <div id="categoryTitle"><h2><%- cate.title %></h2></div>
+            <a href="/goin/<%- cate.id %>"><div id="goIn"><h3>زیر دسته ها ></h3></div></a>
+            <div id="options">
+                <a href="/remove/<%- cate.id %>" class="btn btn-danger margin"> حذف</a>
+            </div>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if(category.length == 0) { %>
+    <h2 class="note"> زیر دسته ای وجود ندارد. موارد مربوط به دسته انتخاب شده تا بدینجا باید در این صفحه گذاشته شود</h2>
+<% } %>
+
+
+<%- include(('./pagination') ,{ pagination : category}) %>

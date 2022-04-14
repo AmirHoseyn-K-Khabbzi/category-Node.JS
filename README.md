@@ -1,9 +1,9 @@
 # category-Node.JS
 category extension to any project written by Node.JS
 
-Used DataBase: MongoDB
+Used DataBase: MongoDB (it should be installed)
 
-use "npm i" to install packges 
+Use "npm i" to install packges 
 
 Run the project on: localhost:8080
 
